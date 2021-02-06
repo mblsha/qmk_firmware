@@ -201,7 +201,7 @@ void process_record(keyrecord_t *record) {
     }
 
     if (!process_record_quantum(record)) {
-#ifndef NO_ACTION_ONESHOT
+#if 0  // breaks set_oneshot_layer in process_record_user
         if (is_oneshot_layer_active() && record->event.pressed) {
             clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
         }
